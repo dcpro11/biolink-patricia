@@ -318,6 +318,48 @@
       margin-top: 0.5rem;
     }
 
+    /* Crédito DD Digital: discreto, centrado, com as cores do biolink */
+    .credito {
+      margin-top: 0.6rem;
+      font-size: 0.72rem;
+      color: var(--mid-gray);
+      opacity: 0.85;
+    }
+
+    /* Link da DD Digital: ganha cor e sublinhado dourado animado ao passar */
+    .bio-footer .credito a {
+      color: var(--blue-dark);
+      font-weight: 500;
+      text-decoration: none;
+      background: linear-gradient(var(--gold), var(--gold)) 0 100% / 0 1px no-repeat;
+      transition: color 0.2s, background-size 0.3s ease;
+    }
+
+    .bio-footer .credito a:hover,
+    .bio-footer .credito a:focus-visible {
+      text-decoration: none;
+      color: var(--charcoal);
+      background-size: 100% 1px;
+    }
+
+    /* Emoji: pisca o olho de vez em quando (animação suave de 6s) */
+    .credito-emoji {
+      display: inline-block;
+      transform-origin: 70% 70%;
+      animation: piscar 6s ease-in-out infinite;
+    }
+
+    @keyframes piscar {
+      0%, 86%, 100% { transform: rotate(0) scale(1); }
+      90% { transform: rotate(-14deg) scale(1.2); }
+      94% { transform: rotate(10deg) scale(1.2); }
+      97% { transform: rotate(0) scale(1); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .credito-emoji { animation: none; }
+    }
+
     /* ANIMATIONS */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(22px); }
@@ -443,9 +485,13 @@
       📋 Cédula OPP nº 026373
     </div>
     <div style="margin-top: 1rem; font-size: 0.68rem; opacity: 0.6;">
-      © 2026 · Dra. Patrícia Gouveia — Psicóloga Clínica <br>
-      Biolink feito com ❤️ por David Cardoso
+      © 2026 · Dra. Patrícia Gouveia — Psicóloga Clínica
     </div>
+    <!-- Crédito DD Digital (texto fixo; não alterar) -->
+    <p class="credito">
+      Spoiler: este biolink não se fez sozinho <span class="credito-emoji" aria-hidden="true">😉</span>
+      <a href="https://dddigital.pt" target="_blank" rel="noopener">DD Digital</a>.
+    </p>
   </div>
 
 </body>
